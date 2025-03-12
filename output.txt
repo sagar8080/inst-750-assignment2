@@ -1,0 +1,413 @@
+(llm_env) sagar@ITLT011192:~/projects/inst750$ python dspy.py 
+Average Metric: 40.00 / 50 (80.0%): 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 91.97it/s]
+2025/03/10 14:38:34 INFO dspy.evaluate.evaluate: Average Metric: 40 / 50 (80.0%)
+Baseline Score: 8000.00%
+2025/03/10 14:38:35 INFO dspy.teleprompt.mipro_optimizer_v2: 
+==> STEP 1: BOOTSTRAP FEWSHOT EXAMPLES <==
+2025/03/10 14:38:35 INFO dspy.teleprompt.mipro_optimizer_v2: These will be used as few-shot example candidates for our program and for creating instructions.
+
+2025/03/10 14:38:35 INFO dspy.teleprompt.mipro_optimizer_v2: Bootstrapping N=10 sets of demonstrations...
+Bootstrapping set 1/10
+Bootstrapping set 2/10
+Bootstrapping set 3/10
+ 25%|█████████████████████████████████████████████████████████████████████████▎                                                                                                                                                                                                                           | 5/20 [03:51<11:34, 46.33s/it]
+Bootstrapped 4 full traces after 5 examples for up to 1 rounds, amounting to 5 attempts.
+Bootstrapping set 4/10
+ 25%|█████████████████████████████████████████████████████████████████████████▎                                                                                                                                                                                                                           | 5/20 [03:31<10:35, 42.39s/it]
+Bootstrapped 4 full traces after 5 examples for up to 1 rounds, amounting to 5 attempts.
+Bootstrapping set 5/10
+ 20%|██████████████████████████████████████████████████████████▌                                                                                                                                                                                                                                          | 4/20 [02:57<11:51, 44.46s/it]
+Bootstrapped 4 full traces after 4 examples for up to 1 rounds, amounting to 4 attempts.
+Bootstrapping set 6/10
+ 15%|███████████████████████████████████████████▉                                                                                                                                                                                                                                                         | 3/20 [01:57<11:03, 39.03s/it]
+Bootstrapped 2 full traces after 3 examples for up to 1 rounds, amounting to 3 attempts.
+Bootstrapping set 7/10
+  5%|██████████████▋                                                                                                                                                                                                                                                                                      | 1/20 [00:43<13:41, 43.21s/it]
+Bootstrapped 1 full traces after 1 examples for up to 1 rounds, amounting to 1 attempts.
+Bootstrapping set 8/10
+ 15%|███████████████████████████████████████████▉                                                                                                                                                                                                                                                         | 3/20 [01:18<07:22, 26.01s/it]
+Bootstrapped 3 full traces after 3 examples for up to 1 rounds, amounting to 3 attempts.
+Bootstrapping set 9/10
+ 15%|███████████████████████████████████████████▉                                                                                                                                                                                                                                                         | 3/20 [01:57<11:05, 39.15s/it]
+Bootstrapped 3 full traces after 3 examples for up to 1 rounds, amounting to 3 attempts.
+Bootstrapping set 10/10
+ 15%|███████████████████████████████████████████▉                                                                                                                                                                                                                                                         | 3/20 [01:26<08:10, 28.87s/it]
+Bootstrapped 3 full traces after 3 examples for up to 1 rounds, amounting to 3 attempts.
+2025/03/10 14:56:18 INFO dspy.teleprompt.mipro_optimizer_v2: 
+==> STEP 2: PROPOSE INSTRUCTION CANDIDATES <==
+2025/03/10 14:56:18 INFO dspy.teleprompt.mipro_optimizer_v2: We will use the few-shot examples from the previous step, a generated dataset summary, a summary of the program code, and a randomly selected prompting tip to propose instructions.
+class QuestionAnswering(dspy.Signature):
+    """Answer questions based on provided context."""
+    context = dspy.InputField(desc="passage containing the answer")
+    question = dspy.InputField(desc="question to be answered")
+    answer = dspy.OutputField(desc="answer extracted from the context")
+
+2025/03/10 15:24:46 INFO dspy.teleprompt.mipro_optimizer_v2: 
+Proposing instructions...
+
+2025/03/10 16:01:02 INFO dspy.teleprompt.mipro_optimizer_v2: Proposed Instructions for Predictor 0:
+
+2025/03/10 16:01:02 INFO dspy.teleprompt.mipro_optimizer_v2: 0: Answer questions based on provided context.
+
+2025/03/10 16:01:02 INFO dspy.teleprompt.mipro_optimizer_v2: 1: Given a descriptive text passage about Notre Dame and a question related to that passage, provide a concise and accurate answer.
+
+2025/03/10 16:01:02 INFO dspy.teleprompt.mipro_optimizer_v2: 2: Given a passage of text and a question about that text, provide a concise and accurate answer.
+
+2025/03/10 16:01:02 INFO dspy.teleprompt.mipro_optimizer_v2: 3: Given a passage of text about Notre Dame University and a question related to that text, extract the most relevant answer from the provided context.
+
+2025/03/10 16:01:02 INFO dspy.teleprompt.mipro_optimizer_v2: 4: Given a text passage about Notre Dame student newspapers and a question related to that passage, provide a concise and accurate answer.
+
+2025/03/10 16:01:02 INFO dspy.teleprompt.mipro_optimizer_v2: 5: You are a student journalist at Notre Dame preparing for a debate on campus news media. To win the debate, you must accurately answer questions about the history and perspectives of the different student-run publications.  Analyze the provided context carefully and provide concise, factual answers to each question about Notre Dame's student newspapers. The fate of your journalistic reputation hangs in the balance!
+
+2025/03/10 16:01:02 INFO dspy.teleprompt.mipro_optimizer_v2: 6: Given a passage of text as context and a question about that text, provide a concise and accurate answer based on the information presented in the context.
+
+2025/03/10 16:01:02 INFO dspy.teleprompt.mipro_optimizer_v2: 7: Given a passage of text and a question about that text, provide a comprehensive and accurate answer.
+
+2025/03/10 16:01:02 INFO dspy.teleprompt.mipro_optimizer_v2: 8: Given a passage of text about Notre Dame University and the Congregation of Holy Cross, answer the following question based on the information provided in the text.
+
+2025/03/10 16:01:02 INFO dspy.teleprompt.mipro_optimizer_v2: 9: Given a passage of text and a question about that text, provide a concise and accurate answer.
+
+2025/03/10 16:01:02 INFO dspy.teleprompt.mipro_optimizer_v2: 
+
+2025/03/10 16:01:03 INFO dspy.teleprompt.mipro_optimizer_v2: ==> STEP 3: FINDING OPTIMAL PROMPT PARAMETERS <==
+2025/03/10 16:01:03 INFO dspy.teleprompt.mipro_optimizer_v2: We will evaluate the program over a series of trials with different combinations of instructions and few-shot examples to find the optimal combination using Bayesian Optimization.
+
+2025/03/10 16:01:03 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 1 / 34 - Full Evaluation of Default Program ==
+Average Metric: 59.00 / 80 (73.8%): 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 80/80 [14:04<00:00, 10.56s/it]
+2025/03/10 16:15:07 INFO dspy.evaluate.evaluate: Average Metric: 59 / 80 (73.8%)
+2025/03/10 16:15:07 INFO dspy.teleprompt.mipro_optimizer_v2: Default program score: 73.75
+
+/home/sagar/llm_env/lib/python3.10/site-packages/optuna/_experimental.py:31: ExperimentalWarning: Argument ``multivariate`` is an experimental feature. The interface can change in the future.
+  warnings.warn(
+2025/03/10 16:15:07 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 2 / 34 - Minibatch ==
+Average Metric: 14.00 / 17 (82.4%):  68%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                       Average Metric: 20.00 / 24 (83.3%):  92%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊             | 23/25 [08:43<00:33, 16.54s/it]Average Metric: 21.00 / 25 (84.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [08:57<00:00, 21.51s/it]
+2025/03/10 16:24:05 INFO dspy.evaluate.evaluate: Average Metric: 21 / 25 (84.0%)
+2025/03/10 16:24:05 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 84.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 1', 'Predictor 0: Few-Shot Set 2'].
+2025/03/10 16:24:05 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0]
+2025/03/10 16:24:05 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75]
+2025/03/10 16:24:05 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 73.75
+2025/03/10 16:24:05 INFO dspy.teleprompt.mipro_optimizer_v2: =========================================
+
+
+2025/03/10 16:24:05 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 3 / 34 - Minibatch ==
+Average Metric: 22.00 / 25 (88.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [16:46<00:00, 40.27s/it]
+2025/03/10 16:40:52 INFO dspy.evaluate.evaluate: Average Metric: 22 / 25 (88.0%)
+2025/03/10 16:40:52 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 88.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 6', 'Predictor 0: Few-Shot Set 2'].
+2025/03/10 16:40:52 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0]
+2025/03/10 16:40:52 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75]
+2025/03/10 16:40:52 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 73.75
+2025/03/10 16:40:52 INFO dspy.teleprompt.mipro_optimizer_v2: =========================================
+
+
+2025/03/10 16:40:52 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 4 / 34 - Minibatch ==
+Average Metric: 19.00 / 25 (76.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [16:51<00:00, 40.47s/it]
+2025/03/10 16:57:44 INFO dspy.evaluate.evaluate: Average Metric: 19 / 25 (76.0%)
+2025/03/10 16:57:45 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 76.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 8', 'Predictor 0: Few-Shot Set 6'].
+2025/03/10 16:57:45 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0]
+2025/03/10 16:57:45 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75]
+2025/03/10 16:57:45 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 73.75
+2025/03/10 16:57:45 INFO dspy.teleprompt.mipro_optimizer_v2: =========================================
+
+
+2025/03/10 16:57:45 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 5 / 34 - Minibatch ==
+Average Metric: 16.00 / 25 (64.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [18:36<00:00, 44.68s/it]
+2025/03/10 17:16:22 INFO dspy.evaluate.evaluate: Average Metric: 16 / 25 (64.0%)
+2025/03/10 17:16:22 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 64.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 4', 'Predictor 0: Few-Shot Set 5'].
+2025/03/10 17:16:22 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0]
+2025/03/10 17:16:22 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75]
+2025/03/10 17:16:22 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 73.75
+2025/03/10 17:16:22 INFO dspy.teleprompt.mipro_optimizer_v2: =========================================
+
+
+2025/03/10 17:16:22 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 6 / 34 - Minibatch ==
+Average Metric: 18.00 / 25 (72.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [13:54<00:00, 33.40s/it]
+2025/03/10 17:30:17 INFO dspy.evaluate.evaluate: Average Metric: 18 / 25 (72.0%)
+2025/03/10 17:30:17 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 72.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 3', 'Predictor 0: Few-Shot Set 8'].
+2025/03/10 17:30:17 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0]
+2025/03/10 17:30:17 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75]
+2025/03/10 17:30:17 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 73.75
+2025/03/10 17:30:17 INFO dspy.teleprompt.mipro_optimizer_v2: =========================================
+
+
+2025/03/10 17:30:17 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 7 / 34 - Minibatch ==
+Average Metric: 20.00 / 25 (80.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [06:59<00:00, 16.78s/it]
+2025/03/10 17:37:17 INFO dspy.evaluate.evaluate: Average Metric: 20 / 25 (80.0%)
+2025/03/10 17:37:17 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 80.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 2', 'Predictor 0: Few-Shot Set 3'].
+2025/03/10 17:37:17 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0]
+2025/03/10 17:37:17 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75]
+2025/03/10 17:37:17 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 73.75
+2025/03/10 17:37:17 INFO dspy.teleprompt.mipro_optimizer_v2: =========================================
+
+
+2025/03/10 17:37:17 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 8 / 34 - Minibatch ==
+Average Metric: 18.00 / 25 (72.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [31:16<00:00, 75.05s/it]
+2025/03/10 18:08:33 INFO dspy.evaluate.evaluate: Average Metric: 18 / 25 (72.0%)
+2025/03/10 18:08:33 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 72.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 9', 'Predictor 0: Few-Shot Set 5'].
+2025/03/10 18:08:33 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0]
+2025/03/10 18:08:33 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75]
+2025/03/10 18:08:33 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 73.75
+2025/03/10 18:08:33 INFO dspy.teleprompt.mipro_optimizer_v2: =========================================
+
+
+2025/03/10 18:08:33 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 9 / 34 - Minibatch ==
+Average Metric: 18.00 / 25 (72.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [08:58<00:00, 21.53s/it]
+2025/03/10 18:17:32 INFO dspy.evaluate.evaluate: Average Metric: 18 / 25 (72.0%)
+2025/03/10 18:17:32 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 72.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 7', 'Predictor 0: Few-Shot Set 4'].
+2025/03/10 18:17:32 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0]
+2025/03/10 18:17:32 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75]
+2025/03/10 18:17:32 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 73.75
+2025/03/10 18:17:32 INFO dspy.teleprompt.mipro_optimizer_v2: =========================================
+
+
+2025/03/10 18:17:32 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 10 / 34 - Minibatch ==
+Average Metric: 22.00 / 25 (88.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [12:14<00:00, 29.37s/it]
+2025/03/10 18:29:46 INFO dspy.evaluate.evaluate: Average Metric: 22 / 25 (88.0%)
+2025/03/10 18:29:46 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 88.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 0', 'Predictor 0: Few-Shot Set 7'].
+2025/03/10 18:29:46 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0]
+2025/03/10 18:29:46 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75]
+2025/03/10 18:29:46 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 73.75
+2025/03/10 18:29:46 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 18:29:46 INFO dspy.teleprompt.mipro_optimizer_v2: ===== Trial 11 / 34 - Full Evaluation =====
+2025/03/10 18:29:46 INFO dspy.teleprompt.mipro_optimizer_v2: Doing full eval on next top averaging program (Avg Score: 88.0) from minibatch trials...
+Average Metric: 61.00 / 80 (76.2%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 80/80 [18:04<00:00, 13.56s/it]
+2025/03/10 18:47:51 INFO dspy.evaluate.evaluate: Average Metric: 61 / 80 (76.2%)
+2025/03/10 18:47:51 INFO dspy.teleprompt.mipro_optimizer_v2: New best full eval score! Score: 76.25
+2025/03/10 18:47:51 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25]
+2025/03/10 18:47:51 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 76.25
+2025/03/10 18:47:51 INFO dspy.teleprompt.mipro_optimizer_v2: =======================
+2025/03/10 18:47:51 INFO dspy.teleprompt.mipro_optimizer_v2: 
+
+2025/03/10 18:47:51 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 12 / 34 - Minibatch ==
+Average Metric: 21.00 / 25 (84.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [10:10<00:00, 24.40s/it]
+2025/03/10 18:58:02 INFO dspy.evaluate.evaluate: Average Metric: 21 / 25 (84.0%)
+2025/03/10 18:58:02 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 84.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 0', 'Predictor 0: Few-Shot Set 7'].
+2025/03/10 18:58:02 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0]
+2025/03/10 18:58:02 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25]
+2025/03/10 18:58:02 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 76.25
+2025/03/10 18:58:02 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 18:58:02 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 13 / 34 - Minibatch ==
+Average Metric: 17.00 / 25 (68.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [00:00<00:00, 61.48it/s]
+2025/03/10 18:58:02 INFO dspy.evaluate.evaluate: Average Metric: 17 / 25 (68.0%)
+2025/03/10 18:58:02 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 68.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 6', 'Predictor 0: Few-Shot Set 2'].
+2025/03/10 18:58:02 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0, 68.0]
+2025/03/10 18:58:02 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25]
+2025/03/10 18:58:02 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 76.25
+2025/03/10 18:58:02 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 18:58:02 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 14 / 34 - Minibatch ==
+Average Metric: 19.00 / 25 (76.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [14:46<00:00, 35.45s/it]
+2025/03/10 19:12:49 INFO dspy.evaluate.evaluate: Average Metric: 19 / 25 (76.0%)
+2025/03/10 19:12:49 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 76.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 6', 'Predictor 0: Few-Shot Set 7'].
+2025/03/10 19:12:49 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0, 68.0, 76.0]
+2025/03/10 19:12:49 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25]
+2025/03/10 19:12:49 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 76.25
+2025/03/10 19:12:49 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 19:12:49 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 15 / 34 - Minibatch ==
+Average Metric: 19.00 / 25 (76.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [13:49<00:00, 33.20s/it]
+2025/03/10 19:26:39 INFO dspy.evaluate.evaluate: Average Metric: 19 / 25 (76.0%)
+2025/03/10 19:26:39 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 76.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 5', 'Predictor 0: Few-Shot Set 7'].
+2025/03/10 19:26:39 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0, 68.0, 76.0, 76.0]
+2025/03/10 19:26:39 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25]
+2025/03/10 19:26:39 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 76.25
+2025/03/10 19:26:39 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 19:26:39 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 16 / 34 - Minibatch ==
+Average Metric: 20.00 / 25 (80.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [14:32<00:00, 34.88s/it]
+2025/03/10 19:41:12 INFO dspy.evaluate.evaluate: Average Metric: 20 / 25 (80.0%)
+2025/03/10 19:41:12 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 80.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 5', 'Predictor 0: Few-Shot Set 9'].
+2025/03/10 19:41:12 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0, 68.0, 76.0, 76.0, 80.0]
+2025/03/10 19:41:12 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25]
+2025/03/10 19:41:12 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 76.25
+2025/03/10 19:41:12 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 19:41:12 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 17 / 34 - Minibatch ==
+Average Metric: 21.00 / 25 (84.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [10:51<00:00, 26.07s/it]
+2025/03/10 19:52:04 INFO dspy.evaluate.evaluate: Average Metric: 21 / 25 (84.0%)
+2025/03/10 19:52:04 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 84.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 7', 'Predictor 0: Few-Shot Set 2'].
+2025/03/10 19:52:04 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0, 68.0, 76.0, 76.0, 80.0, 84.0]
+2025/03/10 19:52:04 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25]
+2025/03/10 19:52:04 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 76.25
+2025/03/10 19:52:04 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 19:52:04 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 18 / 34 - Minibatch ==
+Average Metric: 18.00 / 25 (72.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [11:51<00:00, 28.45s/it]
+2025/03/10 20:03:55 INFO dspy.evaluate.evaluate: Average Metric: 18 / 25 (72.0%)
+2025/03/10 20:03:55 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 72.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 0', 'Predictor 0: Few-Shot Set 1'].
+2025/03/10 20:03:55 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0, 68.0, 76.0, 76.0, 80.0, 84.0, 72.0]
+2025/03/10 20:03:55 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25]
+2025/03/10 20:03:55 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 76.25
+2025/03/10 20:03:55 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 20:03:55 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 19 / 34 - Minibatch ==
+Average Metric: 21.00 / 25 (84.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [11:21<00:00, 27.27s/it]
+2025/03/10 20:15:17 INFO dspy.evaluate.evaluate: Average Metric: 21 / 25 (84.0%)
+2025/03/10 20:15:17 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 84.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 0', 'Predictor 0: Few-Shot Set 2'].
+2025/03/10 20:15:17 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0, 68.0, 76.0, 76.0, 80.0, 84.0, 72.0, 84.0]
+2025/03/10 20:15:17 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25]
+2025/03/10 20:15:17 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 76.25
+2025/03/10 20:15:17 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 20:15:17 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 20 / 34 - Minibatch ==
+Average Metric: 20.00 / 25 (80.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [14:29<00:00, 34.78s/it]
+2025/03/10 20:29:47 INFO dspy.evaluate.evaluate: Average Metric: 20 / 25 (80.0%)
+2025/03/10 20:29:47 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 80.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 6', 'Predictor 0: Few-Shot Set 9'].
+2025/03/10 20:29:47 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0, 68.0, 76.0, 76.0, 80.0, 84.0, 72.0, 84.0, 80.0]
+2025/03/10 20:29:47 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25]
+2025/03/10 20:29:47 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 76.25
+2025/03/10 20:29:47 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 20:29:47 INFO dspy.teleprompt.mipro_optimizer_v2: ===== Trial 21 / 34 - Full Evaluation =====
+2025/03/10 20:29:47 INFO dspy.teleprompt.mipro_optimizer_v2: Doing full eval on next top averaging program (Avg Score: 86.0) from minibatch trials...
+Average Metric: 66.00 / 80 (82.5%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 80/80 [20:39<00:00, 15.50s/it]
+2025/03/10 20:50:27 INFO dspy.evaluate.evaluate: Average Metric: 66 / 80 (82.5%)
+2025/03/10 20:50:27 INFO dspy.teleprompt.mipro_optimizer_v2: New best full eval score! Score: 82.5
+2025/03/10 20:50:27 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25, 82.5]
+2025/03/10 20:50:27 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 82.5
+2025/03/10 20:50:27 INFO dspy.teleprompt.mipro_optimizer_v2: =======================
+2025/03/10 20:50:27 INFO dspy.teleprompt.mipro_optimizer_v2: 
+
+2025/03/10 20:50:27 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 22 / 34 - Minibatch ==
+Average Metric: 19.00 / 25 (76.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [09:06<00:00, 21.88s/it]
+2025/03/10 20:59:34 INFO dspy.evaluate.evaluate: Average Metric: 19 / 25 (76.0%)
+2025/03/10 20:59:34 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 76.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 1', 'Predictor 0: Few-Shot Set 2'].
+2025/03/10 20:59:34 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0, 68.0, 76.0, 76.0, 80.0, 84.0, 72.0, 84.0, 80.0, 76.0]
+2025/03/10 20:59:34 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25, 82.5]
+2025/03/10 20:59:34 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 82.5
+2025/03/10 20:59:34 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 20:59:34 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 23 / 34 - Minibatch ==
+Average Metric: 18.00 / 25 (72.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [08:32<00:00, 20.50s/it]
+2025/03/10 21:08:06 INFO dspy.evaluate.evaluate: Average Metric: 18 / 25 (72.0%)
+2025/03/10 21:08:07 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 72.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 1', 'Predictor 0: Few-Shot Set 4'].
+2025/03/10 21:08:07 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0, 68.0, 76.0, 76.0, 80.0, 84.0, 72.0, 84.0, 80.0, 76.0, 72.0]
+2025/03/10 21:08:07 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25, 82.5]
+2025/03/10 21:08:07 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 82.5
+2025/03/10 21:08:07 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 21:08:07 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 24 / 34 - Minibatch ==
+Average Metric: 16.00 / 25 (64.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [09:02<00:00, 21.70s/it]
+2025/03/10 21:17:09 INFO dspy.evaluate.evaluate: Average Metric: 16 / 25 (64.0%)
+2025/03/10 21:17:09 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 64.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 2', 'Predictor 0: Few-Shot Set 2'].
+2025/03/10 21:17:09 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0, 68.0, 76.0, 76.0, 80.0, 84.0, 72.0, 84.0, 80.0, 76.0, 72.0, 64.0]
+2025/03/10 21:17:09 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25, 82.5]
+2025/03/10 21:17:09 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 82.5
+2025/03/10 21:17:09 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 21:17:09 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 25 / 34 - Minibatch ==
+Average Metric: 17.00 / 25 (68.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [08:25<00:00, 20.21s/it]
+2025/03/10 21:25:35 INFO dspy.evaluate.evaluate: Average Metric: 17 / 25 (68.0%)
+2025/03/10 21:25:35 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 68.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 1', 'Predictor 0: Few-Shot Set 8'].
+2025/03/10 21:25:35 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0, 68.0, 76.0, 76.0, 80.0, 84.0, 72.0, 84.0, 80.0, 76.0, 72.0, 64.0, 68.0]
+2025/03/10 21:25:35 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25, 82.5]
+2025/03/10 21:25:35 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 82.5
+2025/03/10 21:25:35 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 21:25:35 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 26 / 34 - Minibatch ==
+Average Metric: 18.00 / 25 (72.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [09:42<00:00, 23.29s/it]
+2025/03/10 21:35:17 INFO dspy.evaluate.evaluate: Average Metric: 18 / 25 (72.0%)
+2025/03/10 21:35:17 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 72.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 4', 'Predictor 0: Few-Shot Set 2'].
+2025/03/10 21:35:17 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0, 68.0, 76.0, 76.0, 80.0, 84.0, 72.0, 84.0, 80.0, 76.0, 72.0, 64.0, 68.0, 72.0]
+2025/03/10 21:35:17 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25, 82.5]
+2025/03/10 21:35:17 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 82.5
+2025/03/10 21:35:17 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 21:35:17 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 27 / 34 - Minibatch ==
+Average Metric: 20.00 / 25 (80.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [14:39<00:00, 35.16s/it]
+2025/03/10 21:49:56 INFO dspy.evaluate.evaluate: Average Metric: 20 / 25 (80.0%)
+2025/03/10 21:49:57 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 80.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 1', 'Predictor 0: Few-Shot Set 7'].
+2025/03/10 21:49:57 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0, 68.0, 76.0, 76.0, 80.0, 84.0, 72.0, 84.0, 80.0, 76.0, 72.0, 64.0, 68.0, 72.0, 80.0]
+2025/03/10 21:49:57 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25, 82.5]
+2025/03/10 21:49:57 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 82.5
+2025/03/10 21:49:57 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 21:49:57 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 28 / 34 - Minibatch ==
+Average Metric: 18.00 / 25 (72.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [10:12<00:00, 24.52s/it]
+2025/03/10 22:00:10 INFO dspy.evaluate.evaluate: Average Metric: 18 / 25 (72.0%)
+2025/03/10 22:00:10 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 72.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 8', 'Predictor 0: Few-Shot Set 1'].
+2025/03/10 22:00:10 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0, 68.0, 76.0, 76.0, 80.0, 84.0, 72.0, 84.0, 80.0, 76.0, 72.0, 64.0, 68.0, 72.0, 80.0, 72.0]
+2025/03/10 22:00:10 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25, 82.5]
+2025/03/10 22:00:10 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 82.5
+2025/03/10 22:00:10 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 22:00:10 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 29 / 34 - Minibatch ==
+Average Metric: 20.00 / 25 (80.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [08:25<00:00, 20.22s/it]
+2025/03/10 22:08:35 INFO dspy.evaluate.evaluate: Average Metric: 20 / 25 (80.0%)
+2025/03/10 22:08:35 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 80.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 3', 'Predictor 0: Few-Shot Set 2'].
+2025/03/10 22:08:35 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0, 68.0, 76.0, 76.0, 80.0, 84.0, 72.0, 84.0, 80.0, 76.0, 72.0, 64.0, 68.0, 72.0, 80.0, 72.0, 80.0]
+2025/03/10 22:08:35 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25, 82.5]
+2025/03/10 22:08:35 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 82.5
+2025/03/10 22:08:35 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 22:08:35 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 30 / 34 - Minibatch ==
+Average Metric: 19.00 / 25 (76.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [03:47<00:00,  9.12s/it]
+2025/03/10 22:12:23 INFO dspy.evaluate.evaluate: Average Metric: 19 / 25 (76.0%)
+2025/03/10 22:12:23 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 76.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 9', 'Predictor 0: Few-Shot Set 3'].
+2025/03/10 22:12:23 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0, 68.0, 76.0, 76.0, 80.0, 84.0, 72.0, 84.0, 80.0, 76.0, 72.0, 64.0, 68.0, 72.0, 80.0, 72.0, 80.0, 76.0]
+2025/03/10 22:12:23 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25, 82.5]
+2025/03/10 22:12:23 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 82.5
+2025/03/10 22:12:23 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 22:12:23 INFO dspy.teleprompt.mipro_optimizer_v2: ===== Trial 31 / 34 - Full Evaluation =====
+2025/03/10 22:12:23 INFO dspy.teleprompt.mipro_optimizer_v2: Doing full eval on next top averaging program (Avg Score: 84.0) from minibatch trials...
+Average Metric: 61.00 / 80 (76.2%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 80/80 [18:27<00:00, 13.84s/it]
+2025/03/10 22:30:51 INFO dspy.evaluate.evaluate: Average Metric: 61 / 80 (76.2%)
+2025/03/10 22:30:51 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25, 82.5, 76.25]
+2025/03/10 22:30:51 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 82.5
+2025/03/10 22:30:51 INFO dspy.teleprompt.mipro_optimizer_v2: =======================
+2025/03/10 22:30:51 INFO dspy.teleprompt.mipro_optimizer_v2: 
+
+2025/03/10 22:30:51 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 32 / 34 - Minibatch ==
+Average Metric: 19.00 / 25 (76.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [00:00<00:00, 60.47it/s]
+2025/03/10 22:30:52 INFO dspy.evaluate.evaluate: Average Metric: 19 / 25 (76.0%)
+2025/03/10 22:30:52 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 76.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 0', 'Predictor 0: Few-Shot Set 7'].
+2025/03/10 22:30:52 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0, 68.0, 76.0, 76.0, 80.0, 84.0, 72.0, 84.0, 80.0, 76.0, 72.0, 64.0, 68.0, 72.0, 80.0, 72.0, 80.0, 76.0, 76.0]
+2025/03/10 22:30:52 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25, 82.5, 76.25]
+2025/03/10 22:30:52 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 82.5
+2025/03/10 22:30:52 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 22:30:52 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 33 / 34 - Minibatch ==
+Average Metric: 17.00 / 25 (68.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25/25 [06:56<00:00, 16.68s/it]
+2025/03/10 22:37:49 INFO dspy.evaluate.evaluate: Average Metric: 17 / 25 (68.0%)
+2025/03/10 22:37:49 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 68.0 on minibatch of size 25 with parameters ['Predictor 0: Instruction 0', 'Predictor 0: Few-Shot Set 3'].
+2025/03/10 22:37:49 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [84.0, 88.0, 76.0, 64.0, 72.0, 80.0, 72.0, 72.0, 88.0, 84.0, 68.0, 76.0, 76.0, 80.0, 84.0, 72.0, 84.0, 80.0, 76.0, 72.0, 64.0, 68.0, 72.0, 80.0, 72.0, 80.0, 76.0, 76.0, 68.0]
+2025/03/10 22:37:49 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25, 82.5, 76.25]
+2025/03/10 22:37:49 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 82.5
+2025/03/10 22:37:49 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2025/03/10 22:37:49 INFO dspy.teleprompt.mipro_optimizer_v2: ===== Trial 34 / 34 - Full Evaluation =====
+2025/03/10 22:37:49 INFO dspy.teleprompt.mipro_optimizer_v2: Doing full eval on next top averaging program (Avg Score: 84.0) from minibatch trials...
+Average Metric: 62.00 / 80 (77.5%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 80/80 [22:55<00:00, 17.19s/it]
+2025/03/10 23:00:44 INFO dspy.evaluate.evaluate: Average Metric: 62 / 80 (77.5%)
+2025/03/10 23:00:44 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [73.75, 76.25, 82.5, 76.25, 77.5]
+2025/03/10 23:00:44 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 82.5
+2025/03/10 23:00:44 INFO dspy.teleprompt.mipro_optimizer_v2: =======================
+2025/03/10 23:00:44 INFO dspy.teleprompt.mipro_optimizer_v2: 
+
+2025/03/10 23:00:44 INFO dspy.teleprompt.mipro_optimizer_v2: Returning best identified program with score 82.5!
+Average Metric: 37.00 / 50 (74.0%): 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [30:44<00:00, 36.89s/it]
+2025/03/10 23:31:29 INFO dspy.evaluate.evaluate: Average Metric: 37 / 50 (74.0%)
+Optimized Score: 7400.00%
